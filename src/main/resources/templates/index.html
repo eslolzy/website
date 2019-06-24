@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+	<!-- Basic Page Needs
+  ================================================== -->
+	<meta charset="utf-8">
+	<title>A.P/I.K</title>
+	<meta name="description" content="A.P/I.K">
+	<meta name="author" content="A.P/I.K">
+
+
+	<!-- CSS
+    ================================================== -->
+	<link rel="stylesheet" href="../static/zerogrid.css" th:href="@{/zerogrid.css}">
+	<link rel="stylesheet" href="../static/style.css" th:href="@{/style.css}">
+
+	<!-- Custom Fonts -->
+	<link rel="stylesheet" href="../static/font-awesome.css" th:href="@{font-awesome.css}">
+
+	<link rel="stylesheet" href="..static/menu.css" th:href="@{menu.css}">
+
+
+
+
+
+</head>
+
+<body>
+<div class="wrap-body">
+
+	<header class="main-header">
+		<div class="zerogrid">
+			<!--Top-->
+			<div id="top">
+				<div class="row">
+					<div class="col-1-3">
+					</div>
+				</div>
+			</div>
+			<div class="t-center">
+				<img th:src="@{logo.png}" width="300"/>
+
+			</div>
+		</div>
+	</header>
+
+
+
+	<div class="full">
+		<div class="main">
+			<div class="contact-content">
+				<div class="top-header span_top">
+				</div>
+
+				<div class="main-contact">
+					<div class="contact-form">
+
+						<h1 style="color:black;font-size:40px;">Please Login</h1>
+						<form action="/genres/">
+							<input type="text" placeholder="Email" required="required" />
+							<input type="password" placeholder="Password" required="required"/>
+							<input type="submit" value="Log In"/>
+							<!-- <input type="submit" value="Log In"href="index.html">/> -->
+							<div class="clearfix"></div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="footer">
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+</body>
+
+</html>
+
+
