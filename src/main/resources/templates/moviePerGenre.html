@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <!-- Basic Page Needs
+  ================================================== -->
+    <meta charset="utf-8">
+    <title>A.P/I.K</title>
+    <meta name="description" content="A.P/I.K">
+    <meta name="author" content="A.P/I.K">
+
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" th:href="@{/zerogrid.css}">
+    <link rel="stylesheet" th:href="@{/style.css}">
+    <link rel="stylesheet" th:href="@{/font-awesome.css/font-awesome.min.css}">
+    <link rel="stylesheet" th:href="@{/menu.css}">
+
+
+
+
+
+</head>
+
+<body>
+<div class="wrap-body">
+
+    <header class="main-header">
+        <div class="zerogrid">
+            <!--Top-->
+            <div id="top">
+                <div class="row">
+                    <div class="col-1-3">
+                        <div class="top-search">
+                            <form id="form-container" action="/movie/search">
+                                <!--<input type="submit" id="searchsubmit" value="" />-->
+                                <div id="searchtext">
+                                    <!-- THYMELEAF FOR SEARCH-->
+                                    <input type="text" id="s" name="query" placeholder="Search">
+                                    <input type="submit" value="send" >
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="t-center">
+                <a class="site-branding" th:href="@{'/genres/'}">
+                    <form>
+                        <img th:src="@{/logo.png/}" width="300"/>
+                    </form>
+                </a><!-- .site-branding --
+
+
+				<-- Menu-main -->
+                <div id='cssmenu' class="align-center">
+                    <ul>
+                        <li><a th:href="@{/genres/}"><span>Genres</span></a></li>
+                        <li class="active"><a th:href="@{/movie/}"><span>Movies</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- Basic Page Needs
+  ================================================== -->
+    <meta charset="utf-8">
+    <div class="container">
+
+        <section id="container">
+            <div class="wrap-container">
+                <div id="main-content">
+                    <div class="wrap-content">
+                        <div class="zerogrid">
+                            <div class="row">
+                                <th:block th:each="movie : ${movies}">
+                                    <div class="card u-clearfix">
+                                        <div class="card-media">
+                                            <img th:src="'/images/' +${movie.image}" alt="" class="card-media-img" />
+                                            <span class="card-media-tag card-media-tag-orange">Movie</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <h2 class="card-body-heading" th:text="${movie.name}"></h2>
+                                            <div class="card-body-options">
+                                                <div class="card-body-option card-body-option-favorite">
+                                                    <a th:href="@{/title/}" class="card-button card-button-link">
+                                                        More info
+                                                        <span class="card-button-icon"></span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </th:block>
+
+
+
+                                <!-- Insidous -->
+
+
+
+                                <div class="floating-action-button u-flex-center">
+                                    <svg fill="#ffffff" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+                                        <path d="M0 0h24v24H0z" fill="none"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+</body>
+</html>
