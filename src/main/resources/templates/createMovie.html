@@ -52,8 +52,8 @@
                 <div id='cssmenu' class="align-center">
                     <ul>
                         <li><a th:href="@{/genres/}"><span>Genres</span></a></li>
-                        <li class="active"><a th:href="@{/movie/}"><span>Movies</span></a></li>
-                        <li><a th:action="@{/create}" th:object="${movies}" th:href="@{/create/}"><span>Add Movie</span></a></li>
+                        <li><a th:href="@{/movie/}"><span>Movies</span></a></li>
+                        <li class="active"><a th:action="@{/movie}" th:object="${movies}" method="post"><span>Add Movie</span></a></li>
                     </ul>
                 </div>
             </div>
@@ -68,26 +68,35 @@
                     <div class="wrap-content">
                         <div class="zerogrid">
                             <div class="row">
-                                <th:block th:each="movie : ${movies}">
-                                    <div class="card u-clearfix">
-                                        <div class="card-media">
-                                            <img th:src="'/images/' +${movie.image}" alt="" class="card-media-img"/>
-                                            <span th:text="${movie.genre}" alt="" class="card-media-tag card-media-tag-orange" ></span>
-                                        </div>
-                                        <div class="card-body">
-                                            <h2 class="card-body-heading" th:text="${movie.name}"></h2>
-                                            <div class="card-body-options">
-                                                <div class="card-body-option card-body-option-favorite">
-                                                    <a th:href="'/movie/' +${movie.name}"
-                                                       class="card-button card-button-link">
-                                                        More info
-                                                        <span class="card-button-icon"></span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </th:block>
+                                <form action="#" th:action="@{/movies/create}"
+                                      method="post">
+                                    <fieldset>
+                                        <input type="submit" id="submitButton" th:value="Save">
+                                        <input type="reset" id="resetButton" name="reset" th:value="Reset"/>
+                                        <table>
+                                            <thead>
+                                            <tr>
+                                                <th> Title</th>
+                                                <th> Release Date</th>
+                                                <th> Description</th>
+                                                <th> Genre</th>
+                                                <th> Box Office</th>
+                                                <th> Image</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr th:each="movie, itemStat : *{movies}">
+                                                <td><input th:field="*{movie[__${itemStat.index}__].title}" /></td>
+                                                <td><input th:field="*{movie[__${itemStat.index}__].releaseDate}" /></td>
+                                                <td><input th:field="*{movie[__${itemStat.index}__].descritpion}" /></td>
+                                                <td><input th:field="*{movie[__${itemStat.index}__].genre}" /></td>
+                                                <td><input th:field="*{movie[__${itemStat.index}__].boxoffice}" /></td>
+                                                <td><input th:field="*{movie[__${itemStat.index}__].image}" /></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </fieldset>
+                                </form>
                             </div>
                         </div>
                     </div>

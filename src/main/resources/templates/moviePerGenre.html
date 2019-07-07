@@ -79,7 +79,7 @@
                                             <h2 class="card-body-heading" th:text="${movie.name}"></h2>
                                             <div class="card-body-options">
                                                 <div class="card-body-option card-body-option-favorite">
-                                                    <a th:href="'/movie/' +${movie.name}"
+                                                    <a th:href="'/movie/{title}' +${movie.name}"
                                                        class="card-button card-button-link">
                                                         More info
                                                         <span class="card-button-icon"></span>

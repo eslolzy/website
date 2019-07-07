@@ -16,7 +16,7 @@ import java.util.ArrayList;
 @Controller
 @RequestMapping("/genres")
 public class GenreController {
-    public static ArrayList<Movie> moviesPerGenre = new ArrayList<>();
+
 
 
     @Autowired
@@ -29,16 +29,6 @@ public class GenreController {
         return "genres";
     }
 
-    @GetMapping(path = "genre_movies/{name}")
-    public String getMoviePerGenre(@PathVariable("name") String genreName, Model model) {
-        for (int i = 0; i < DataProvider.movies.size(); i++) {
-            if (DataProvider.movies.get(i).getGenre().equals(genreName)) {
-                moviesPerGenre.add(DataProvider.movies.get(i));
-            }
-        }
-        model.addAttribute("movie", moviesPerGenre);
-        return "moviePerGenre";
 
-    }
 
 }

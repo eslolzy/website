@@ -51,10 +51,10 @@ public class MovieController {
         return "movies";
     }
 
-    @PostMapping(path = "create")
+    @PostMapping("/create")
     public String createMovie(Movie movie, Model model) {
         DataProvider.movies.add(movie);
-        return "create";
+        return "createMovie";
     }
 
     @PostMapping(path = "delete/{title}") //??
@@ -70,5 +70,17 @@ public class MovieController {
         return "/";
     }
 
+    public static ArrayList<Movie> moviesPerGenre = new ArrayList<>();
+    @GetMapping(path = "genre_movies/{name}")
+    public String getMoviePerGenre(@PathVariable("name") String genreName, Model model) {
+        for (int i = 0; i < DataProvider.movies.size(); i++) {
+            if (DataProvider.movies.get(i).getGenre().equals(genreName)) {
+                moviesPerGenre.add(DataProvider.movies.get(i));
+            }
+        }
+        model.addAttribute("movie", moviesPerGenre);
+        return "moviePerGenre";
+
+    }
 
 }
