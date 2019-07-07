@@ -25,7 +25,7 @@ public class MovieController {
         return "movies";
     }
 
-    @GetMapping("{title}")
+    @GetMapping("/movie/{title}")
     public String getMovie(@PathVariable("title") String title, Model model) {
         for (int i = 0; i < DataProvider.movies.size(); i++) {
             if (DataProvider.movies.get(i).getName().equals(title)) {
@@ -33,7 +33,7 @@ public class MovieController {
             }
         }
         model.addAttribute("movie", exactMovie);
-        return "animated_desc ";
+        return "movieDesc";
     }
 
     @GetMapping("/search")
@@ -69,5 +69,6 @@ public class MovieController {
         }
         return "/";
     }
+
 
 }

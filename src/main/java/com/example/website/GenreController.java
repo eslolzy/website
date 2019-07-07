@@ -29,7 +29,7 @@ public class GenreController {
         return "genres";
     }
 
-    @GetMapping(path = "/genre_movies/{name}")
+    @GetMapping(path = "genre_movies/{name}")
     public String getMoviePerGenre(@PathVariable("name") String genreName, Model model) {
         for (int i = 0; i < DataProvider.movies.size(); i++) {
             if (DataProvider.movies.get(i).getGenre().equals(genreName)) {
@@ -37,7 +37,7 @@ public class GenreController {
             }
         }
         model.addAttribute("movie", moviesPerGenre);
-        return "movie";
+        return "moviePerGenre";
 
     }
 

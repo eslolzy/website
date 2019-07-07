@@ -71,27 +71,27 @@
 				<!-----------------Content-Box-------------------->
 				<article class="single-post zerogrid">
 					<div class="row wrap-post"><!--Start Box-->
-                        <th:block th:each="movie : ${movies}">
+                        <th:block th:each="movie : ${movie}">
 						<div class="entry-header">
-                            <h1 class="entry-title" th:text="${movie.releaseDate} </h1>
-							<h1 class="entry-title" th:text="${movie.name} </h1>
-							<span class="cat-links"><a th:text="${movie.genre} </a></span>
+                            <h1 class="entry-title" th:text="${movie.releaseDate}"> </h1>
+							<h1 class="entry-title" th:text="${movie.name}"> </h1>
+							<span class="cat-links" th:text="${movie.genre}"></span>
 						</div>
 						<div class="post-thumbnail-wrap">
-                            <img th:src="${movie.image}">
+                            <img th:src="'/images/' +${movie.image}" alt="" class="card-media-img"/>
 						</div>
 						<div class="entry-content">
 							<p><b>Description</b></p>
                             <div class="excerpt th:text="${movie.descritpion}>
+
                         </div>
-                            <span class="cat-links"><a th:text="${movie.boxoffice} </a></span>
-						</div>
-					</div>
-					</th:block>
-				</article>
+                        </div>
+                        </th:block>
+                    </div>
+                </article>
+            </div>
+        </section>
+</div>
 
-		</section>
-
-	</div>
 </body>
 </html>
