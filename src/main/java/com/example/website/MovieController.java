@@ -13,7 +13,7 @@ import java.util.ArrayList;
 @RequestMapping("/movie")
 public class MovieController {
 
-    public String exactMovie;
+    public Movie exactMovie;
 
     @Autowired
     private DataProvider provider;
@@ -29,7 +29,8 @@ public class MovieController {
     public String getMovie(@PathVariable("title") String title, Model model) {
         for (int i = 0; i < DataProvider.movies.size(); i++) {
             if (DataProvider.movies.get(i).getName().equals(title)) {
-                exactMovie = DataProvider.movies.get(i).toString();
+                exactMovie = DataProvider.movies.get(i);
+                System.out.println(exactMovie);
             }
         }
         model.addAttribute("movie", exactMovie);
@@ -44,7 +45,7 @@ public class MovieController {
                 foundMovies.add(DataProvider.movies.get(i));
             } else {
                 String noResult = "NO results";
-                return noResult;
+                return "movies";
             }
         }
         model.addAttribute("allmovies", foundMovies);
@@ -63,17 +64,18 @@ public class MovieController {
             if(title.equals(DataProvider.movies.get(i).getName())) {
                 DataProvider.movies.remove(DataProvider.movies.get(i));
             } else {
-                String noResult = "No results";
-                return noResult;
+                return "movies";
             }
         }
         return "/";
     }
 
     public static ArrayList<Movie> moviesPerGenre = new ArrayList<>();
-    @GetMapping(path = "genre_movies/{name}")
+    @GetMapping(path = "/genre_movies/{name}")
     public String getMoviePerGenre(@PathVariable("name") String genreName, Model model) {
+        moviesPerGenre.clear();
         for (int i = 0; i < DataProvider.movies.size(); i++) {
+
             if (DataProvider.movies.get(i).getGenre().equals(genreName)) {
                 moviesPerGenre.add(DataProvider.movies.get(i));
             }

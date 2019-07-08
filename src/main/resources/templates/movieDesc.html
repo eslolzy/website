@@ -15,11 +15,8 @@
     ================================================== -->
     <link rel="stylesheet" th:href="@{/zerogrid.css}">
     <link rel="stylesheet" th:href="@{/style.css}">
-    <link rel="stylesheet" th:href="@{/font-awesome.css/font-awesome.min.css}">
+    <link rel="stylesheet" th:href="@{/font-awesome.min.css}">
     <link rel="stylesheet" th:href="@{/menu.css}">
-
-
-
 
 
 </head>
@@ -51,44 +48,49 @@
                     <form>
                         <img th:src="@{/logo.png/}" width="300"/>
                     </form>
-                </a><!-- .site-branding --
-
-
-				<-- Menu-main -->
+                </a>
                 <div id='cssmenu' class="align-center">
                     <ul>
-                        <li class="active"><a th:href="@{/genres/}"><span>Genres</span></a></li>
-                        <li><a th:href="@{/movie/}"><span>Movies</span></a></li>
+                        <li><a th:href="@{/genres/}"><span>Genres</span></a></li>
+                        <li class="active"><a th:href="@{/movie/}"><span>Movies</span></a></li>
+                        <li><a th:action="@{/create}" th:object="${movies}" th:href="@{/create/}"><span>Add Movie</span></a></li>
                     </ul>
                 </div>
             </div>
         </div>
     </header>
-
-    <!--////////////////////////////////////Container-->
 		<section id="container">
 			<div class="wrap-container">
-				<!-----------------Content-Box-------------------->
-				<article class="single-post zerogrid">
-					<div class="row wrap-post"><!--Start Box-->
-                        <th:block th:each="movie : ${movie}">
-						<div class="entry-header">
-                            <h1 class="entry-title" th:text="${movie.releaseDate}"> </h1>
-							<h1 class="entry-title" th:text="${movie.name}"> </h1>
-							<span class="cat-links" th:text="${movie.genre}"></span>
-						</div>
-						<div class="post-thumbnail-wrap">
-                            <img th:src="'/images/' +${movie.image}" alt="" class="card-media-img"/>
-						</div>
-						<div class="entry-content">
-							<p><b>Description</b></p>
-                            <div class="excerpt th:text="${movie.descritpion}>
 
-                        </div>
-                        </div>
+                <article class="single-post zerogrid">
+                        <th:block th:each="movie : ${movie}">
+                            <div class="row wrap-post">
+                                <div class="entry-header">
+                               	<span class="time" th:text="${movie.releaseDate}"></span>
+                                <h1 class="entry-title" th:text="${movie.name}"> </h1>
+                                <span class="cat-links" th:text="${movie.genre}"></span>
+                            </div>
+                            <div class="post-thumbnail-wrap">
+                                <img th:src="'/images/' +${movie.image}"/>
+                            </div>
+                            <div class="entry-content">
+                                <h2>Description</h2>
+                                <div class=excerpt th:text="${movie.descritpion}">
+                                </div>
+                                <div class=excerpt>
+                                    <p></p>
+                                <h2>Box Office</h2>
+                                <div class=excerpt th:text="${movie.boxOffice}">
+                                </div>
+                            </div>
+                            </div>
+                            </div>
                         </th:block>
-                    </div>
                 </article>
+            </div>
+        </section>
+</div>
+
             </div>
         </section>
 </div>

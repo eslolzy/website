@@ -71,14 +71,16 @@
                                 <th:block th:each="movie : ${movies}">
                                     <div class="card u-clearfix">
                                         <div class="card-media">
-                                            <img th:src="'/images/' +${movie.image}" alt="" class="card-media-img"/>
+                                            <a th:href="'/movie/movie/' +${movie.name}">
+                                                <img th:src="'/images/' +${movie.image}" alt="" class="card-media-img"/>
+                                            </a>
                                             <span th:text="${movie.genre}" alt="" class="card-media-tag card-media-tag-orange" ></span>
                                         </div>
                                         <div class="card-body">
                                             <h2 class="card-body-heading" th:text="${movie.name}"></h2>
                                             <div class="card-body-options">
                                                 <div class="card-body-option card-body-option-favorite">
-                                                    <a th:href="'/movie/' +${movie.name}"
+                                                    <a th:href="'/movie/movie/{title}' +${movie.name}"
                                                        class="card-button card-button-link">
                                                         More info
                                                         <span class="card-button-icon"></span>

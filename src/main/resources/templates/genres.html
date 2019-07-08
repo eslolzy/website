@@ -47,17 +47,17 @@
 			</div>
 			<div class="t-center">
 				<a class="site-branding" th:href="@{'/genres/'}">
-				<form>
-					<img th:src="@{/logo.png/}" width="300"/>
-				</form>
-				</a><!-- .site-branding --
+					<form>
+						<img th:src="@{/logo.png/}" width="300"/>
+					</form>
+				</a>
 
 
-				<-- Menu-main -->
 				<div id='cssmenu' class="align-center">
 					<ul>
 						<li class="active"><a th:href="@{/genres/}"><span>Genres</span></a></li>
 						<li><a th:href="@{/movie/}"><span>Movies</span></a></li>
+						<li><a th:action="@{/create}" th:object="${movies}" th:href="@{/create/}"><span>Add Movie</span></a></li>
 					</ul>
 				</div>
 			</div>
@@ -76,9 +76,9 @@
 					<div class="zerogrid">
 						<div class="row">
 							<th:block th:each="genre : ${genres}">
-							<div class="col-1-3">
-								<div class="wrap-col">
-										<a th:href="@{'/genre_movies/' + ${genre.title}}"  class="portfolio-box zoom-effect" >
+								<div class="col-1-3">
+									<div class="wrap-col">
+										<a th:href="@{'/movie/genre_movies/' + ${genre.title}}"  class="portfolio-box zoom-effect" >
 											<img th:src="'/images/' +${genre.image}" class="img-responsive" alt="">
 											<div class="portfolio-box-caption">
 												<div class="portfolio-box-caption-content">
@@ -88,18 +88,18 @@
 												</div>
 											</div>
 										</a>
+									</div>
 								</div>
-							</div>
-									</th:block>
-								</div>
-							</div>
+							</th:block>
 						</div>
 					</div>
 				</div>
-	</section>
 			</div>
 		</div>
-	<!--////////////////////////////////////Footer-->
+	</section>
+</div>
+</div>
+<!--////////////////////////////////////Footer-->
 </div>
 </body>
 
