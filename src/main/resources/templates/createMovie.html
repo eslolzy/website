@@ -53,7 +53,7 @@
                     <ul>
                         <li><a th:href="@{/genres/}"><span>Genres</span></a></li>
                         <li><a th:href="@{/movie/}"><span>Movies</span></a></li>
-                        <li class="active"><a th:action="@{/movie}" th:object="${movies}" method="post"><span>Add Movie</span></a></li>
+                        <li class="active"><a th:href="@{/movie/create/}"><span>Add Movie</span></a></li>
                     </ul>
                 </div>
             </div>
@@ -68,34 +68,28 @@
                     <div class="wrap-content">
                         <div class="zerogrid">
                             <div class="row">
-                                <form action="#" th:action="@{/movies/create}"
-                                      method="post">
-                                    <fieldset>
-                                        <input type="submit" id="submitButton" th:value="Save">
-                                        <input type="reset" id="resetButton" name="reset" th:value="Reset"/>
-                                        <table>
-                                            <thead>
-                                            <tr>
-                                                <th> Title</th>
-                                                <th> Release Date</th>
-                                                <th> Description</th>
-                                                <th> Genre</th>
-                                                <th> Box Office</th>
-                                                <th> Image</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            <tr th:each="movie, itemStat : *{movies}">
-                                                <td><input th:field="*{movie[__${itemStat.index}__].title}" /></td>
-                                                <td><input th:field="*{movie[__${itemStat.index}__].releaseDate}" /></td>
-                                                <td><input th:field="*{movie[__${itemStat.index}__].descritpion}" /></td>
-                                                <td><input th:field="*{movie[__${itemStat.index}__].genre}" /></td>
-                                                <td><input th:field="*{movie[__${itemStat.index}__].boxoffice}" /></td>
-                                                <td><input th:field="*{movie[__${itemStat.index}__].image}" /></td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                    </fieldset>
+                                <form action="#" th:action="@{/create}" th:object="${movie}" method="post">
+                                    <p>
+                                        Name: <input type="text" th:field="*{name}">
+                                    </p>
+                                    <p>
+                                        ReleaseDate : <input type="text" th:field="*{releaseDate}">
+                                    </p>
+                                    <p>
+                                        Description : <input type="text" th:field="*{descritpion}">
+                                    </p>
+                                    <p>
+                                        ReleaseDate: <input type="text" th:field="*{genre}">
+                                    </p>
+                                    <p>
+                                        ReleaseDate: <input type="text" th:field="*{boxOffice}">
+                                    </p>
+                                    <p>
+                                        ReleaseDate: <input type="image" th:field="*{image}">
+                                    </p>
+                                    <p>
+                                        <input type="submit" value="Submit"/> <input type="reset" value="Reset">
+                                    </p>
                                 </form>
                             </div>
                         </div>

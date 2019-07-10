@@ -53,7 +53,7 @@
                     <ul>
                         <li><a th:href="@{/genres/}"><span>Genres</span></a></li>
                         <li class="active"><a th:href="@{/movie/}"><span>Movies</span></a></li>
-                        <li><a th:action="@{/create}" th:object="${movies}" th:href="@{/create/}"><span>Add Movie</span></a></li>
+                        <li><a th:href="@{/movie/create/}"><span>Add Movie</span></a></li>
                     </ul>
                 </div>
             </div>
@@ -80,9 +80,12 @@
                                             <h2 class="card-body-heading" th:text="${movie.name}"></h2>
                                             <div class="card-body-options">
                                                 <div class="card-body-option card-body-option-favorite">
-                                                    <a th:href="'/movie/movie/{title}' +${movie.name}"
+                                                    <a th:href="'/movie/movie/' +${movie.name}"
                                                        class="card-button card-button-link">
                                                         More info
+                                                        <a th:href="'/delete/' +${movie.name}" class="card-button card-button-link">
+                                                            <font color="red">Delete Movie</font>
+                                                        </a>
                                                         <span class="card-button-icon"></span>
                                                     </a>
                                                 </div>

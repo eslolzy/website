@@ -52,13 +52,20 @@ public class MovieController {
         return "movies";
     }
 
-    @PostMapping("/create")
-    public String createMovie(Movie movie, Model model) {
-        DataProvider.movies.add(movie);
+
+    @GetMapping("/create")
+    public String MovieForm(Movie movie) {
+
         return "createMovie";
     }
 
-    @PostMapping(path = "delete/{title}") //??
+    @PostMapping("/create")
+    public String MovieSubmit(Movie movie, Model model) {
+        DataProvider.movies.add(movie);
+        return "Movies";
+    }
+
+    @PostMapping(path = "/delete/{title}") //??
     public String deleteMovie(@PathVariable("title") String title) {
         for (int i = 0; i <DataProvider.movies.size() ; i++) {
             if(title.equals(DataProvider.movies.get(i).getName())) {
