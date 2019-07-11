@@ -53,7 +53,7 @@
                     <ul>
                         <li><a th:href="@{/genres/}"><span>Genres</span></a></li>
                         <li><a th:href="@{/movie/}"><span>Movies</span></a></li>
-                        <li class="active"><a th:href="@{/movie/create/}"><span>Add Movie</span></a></li>
+                        <li class="active"><a th:href="@{/movie/createForm/}"><span>Add Movie</span></a></li>
                     </ul>
                 </div>
             </div>
@@ -68,7 +68,7 @@
                     <div class="wrap-content">
                         <div class="zerogrid">
                             <div class="row">
-                                <form action="#" th:action="@{/create}" th:object="${movie}" method="post">
+                                <form action="#" th:action="@{/movie/createSubmit}" th:object="${movie}" method="post">
                                     <p>
                                         Name: <input type="text" th:field="*{name}">
                                     </p>
@@ -85,9 +85,8 @@
                                         BoxOffice: <input type="text" th:field="*{boxOffice}">
                                     </p>
                                     <p><a>
-                                        Image: <input type="image" th:field="*{image}">
+                                        Image (Post a URL link to an img): <input type="text" th:field="*{image}">
                                         <span class="card-button-icon"></span></a></p>
-
                                     <p>
                                         <input type="submit" value="Submit"/> <input type="reset" value="Reset">
                                     </p>

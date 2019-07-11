@@ -53,16 +53,17 @@ public class MovieController {
     }
 
 
-    @GetMapping("/create")
-    public String MovieForm(Movie movie) {
-
+    @GetMapping("/createForm")
+    public String MovieForm(Model model) {
+        Movie movie = new Movie();
+        model.addAttribute("movie", movie);
         return "createMovie";
     }
 
-    @PostMapping("/create")
-    public String MovieSubmit(Movie movie, Model model) {
+    @PostMapping("/createSubmit")
+    public String processForm(@ModelAttribute(value="movie") Movie movie) {
         DataProvider.movies.add(movie);
-        return "Movies";
+        return "movies";
     }
 
     @PostMapping(path = "/delete/{title}") //??

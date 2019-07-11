@@ -53,7 +53,7 @@
                     <ul>
                         <li><a th:href="@{/genres/}"><span>Genres</span></a></li>
                         <li class="active"><a th:href="@{/movie/}"><span>Movies</span></a></li>
-                        <li><a th:href="@{/movie/create/}"><span>Add Movie</span></a></li>
+                        <li class="active"><a th:href="@{/movie/createForm/}"><span>Add Movie</span></a></li>
                     </ul>
                 </div>
             </div>
@@ -83,10 +83,12 @@
                                                     <a th:href="'/movie/movie/' +${movie.name}"
                                                        class="card-button card-button-link">
                                                         More info
-                                                        <a th:href="'/delete/' +${movie.name}" class="card-button card-button-link">
+                                                    </a>
+                                                        <form action="#" th:action="@{/movie/delete}" th:object="${movie}" method="post" class="card-button card-button-link">
                                                             <font color="red">Delete Movie</font>
-                                                        </a>
+
                                                         <span class="card-button-icon"></span>
+                                                </form>
                                                     </a>
                                                 </div>
                                             </div>
