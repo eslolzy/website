@@ -63,10 +63,10 @@
 			<div class="wrap-container">
 
                 <article class="single-post zerogrid">
-                        <th:block th:each="movie : ${movie}">
-                            <div class="row wrap-post">
-                                <div class="entry-header">
-                               	<span class="time" th:text="${movie.releaseDate}"></span>
+                    <th:block th:each="movie : ${movie}">
+                        <div class="row wrap-post">
+                            <div class="entry-header">
+                                <span class="time" th:text="${movie.releaseDate}"></span>
                                 <h1 class="entry-title" th:text="${movie.name}"> </h1>
                                 <span class="cat-links" th:text="${movie.genre}"></span>
                             </div>
@@ -79,20 +79,17 @@
                                 </div>
                                 <div class=excerpt>
                                     <p></p>
-                                <h2>Box Office</h2>
-                                <div class=excerpt th:text="${movie.boxOffice}">
+                                    <h2>Box Office</h2>
+                                    <div class=excerpt th:text="${movie.boxOffice}">
+                                    </div>
                                 </div>
                             </div>
-                            </div>
-                            </div>
-                        </th:block>
+                        </div>
+                    </th:block>
                 </article>
             </div>
         </section>
 </div>
-
-            </div>
-        </section>
 </div>
 
 </body>
