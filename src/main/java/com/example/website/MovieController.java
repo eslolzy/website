@@ -55,8 +55,8 @@ public class MovieController {
 
     @GetMapping("/createForm")
     public String MovieForm(Model model) {
-        Movie movie = new Movie();
-        model.addAttribute("movie", movie);
+            ArrayList<Movie> movies = provider.movies;
+            model.addAttribute("movie", movies);
         return "createMovie";
     }
 

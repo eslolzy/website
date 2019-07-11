@@ -33,9 +33,7 @@ public class Movie {
         this.name = name;
     }
 
-    public String getReleaseDate() {
-        return releaseDate;
-    }
+    public String getReleaseDate() { return releaseDate; }
 
     public void setReleaseDate(String releaseDate) {
         this.releaseDate = releaseDate;
