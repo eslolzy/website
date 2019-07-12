@@ -39,15 +39,15 @@ public class MovieController {
 
     @GetMapping("/search")
     public String searchMovie(@RequestParam("query") String query, Model model) {
-        ArrayList<Movie> foundMovies = new ArrayList<>();
+        ArrayList<Movie> movies = provider.movies;
         for (int i = 0; i <DataProvider.movies.size() ; i++) {
             if(query.equals(DataProvider.movies.get(i).getName())) {
-                foundMovies.add(DataProvider.movies.get(i));
+                movies.add(DataProvider.movies.get(i));
             } else {
                 return "movies";
             }
         }
-        model.addAttribute("allmovies", foundMovies);
+        model.addAttribute("movies", movies);
         return "movies";
     }
 
