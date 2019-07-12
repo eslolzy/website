@@ -44,7 +44,6 @@ public class MovieController {
             if(query.equals(DataProvider.movies.get(i).getName())) {
                 foundMovies.add(DataProvider.movies.get(i));
             } else {
-                String noResult = "NO results";
                 return "movies";
             }
         }
